@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Places Visited — A photographic journey from Dhaka across southwestern Bangladesh to the Bay of Bengal by Munasib Apurbo." />
+  <meta name="theme-color" content="#dff2f0" />
+  <title>A small trip &mdash; Photographs by Munasib Apurbo</title>
+
+  <!-- Favicon & Touch Icon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+
+  <!-- Google Fonts: Editorial Serif, Inter, Retro Monospace & 90s Camcorder OSD -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#top" class="brand-group" aria-label="Munasib Apurbo">
+        <img src="assets/images/logo.png" alt="Munasib Apurbo Logo" class="brand-logo" width="28" height="28" />
+        <span class="brand-title">Munasib Apurbo</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#route" class="nav-link"><span class="nav-text-full">Route Map</span><span class="nav-text-short">Route</span></a>
+        <a href="#gallery" class="nav-link"><span class="nav-text-full">Photographs</span><span class="nav-text-short">Photos</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Redesigned Full-Bleed Cinematic Hero Section -->
+    <section class="hero-cinematic" id="hero-cinematic" aria-label="A small trip">
+      <!-- Background Video (11 Original Clips) -->
+      <div class="hero-video-wrap">
+        <video 
+          class="hero-video" 
+          id="hero-bg-video" 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          preload="auto"
+          poster="assets/images/web/IMG_4567.jpg"
+        >
+          <source src="assets/videos/hero_montage.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- 4 Precision Corner Crop Marks & Center Crosshairs -->
+      <div class="hero-viewfinder-frame" aria-hidden="true">
+        <div class="hud-corner hud-corner-tl"></div>
+        <div class="hud-corner hud-corner-tr"></div>
+        <div class="hud-corner hud-corner-bl"></div>
+        <div class="hud-corner hud-corner-br"></div>
+        <div class="hud-center-crosshair">
+          <span class="hud-cross-ch-x"></span>
+          <span class="hud-cross-ch-y"></span>
+          <div class="hud-focus-box"></div>
+        </div>
+      </div>
+
+      <!-- Hero Main Content: 3-Tier Cinematic Flex Deck -->
+      <div class="container hero-cinematic-inner">
+        <!-- Tier 1: Top Camcorder HUD Telemetry Bar (Safely below navbar) -->
+        <div class="hero-hud-top-deck">
+          <div class="hud-rec-indicator">
+            <span class="hud-rec-dot"></span>
+            <span class="hud-rec-text">REC</span>
+          </div>
+          <div class="hud-cam-mode">
+            <span class="hud-mode-pill">SP // 60 FPS</span>
+            <span class="hud-exposure-val">F/2.8 &bull; 1/250s</span>
+          </div>
+          <div class="hud-battery-indicator">
+            <span class="hud-bat-text">BATT</span>
+            <div class="hud-bat-icon">
+              <span class="hud-bat-level"></span>
+            </div>
+            <span class="hud-bat-pct">94%</span>
+          </div>
+        </div>
+
+        <!-- Tier 2: Editorial Masthead -->
+        <div class="hero-cinematic-masthead">
+          <h1 class="hero-cinematic-title">A small trip</h1>
+          <p class="hero-cinematic-tagline">
+            Across southern riverways to the Bay of Bengal &mdash; Photographs by Munasib Apurbo
+          </p>
+        </div>
+
+        <!-- Tier 3: Unified Bottom Dock (3 Distinct Columns: Timestamp | Scroll Cue | Reel Progress) -->
+        <div class="hero-bottom-dock">
+          <!-- Dock Column Left: 90s Camcorder Timestamp & Tape Counter -->
+          <div class="hero-dock-left">
+            <div class="hud-timestamp-group">
+              <span class="hud-date" id="hud-date-display">21.SEP.2026</span>
+              <span class="hud-time" id="hud-time-display">01:44:22</span>
+            </div>
+            <div class="hud-tape-counter">
+              <span class="hud-tape-label">TAPE //</span>
+              <span class="hud-tape-time" id="hud-tape-display">00:04:18:12</span>
+            </div>
+          </div>
+
+          <!-- Dock Column Center: Elegant Scroll Cue -->
+          <div class="hero-dock-center">
+            <a href="#route" class="hero-scroll-cue" aria-label="Scroll down to Route Map">
+              <span class="scroll-cue-line"></span>
+              <span class="scroll-cue-text">EXPLORE ARCHIVE</span>
+            </a>
+          </div>
+
+          <!-- Dock Column Right: 11-Segment Filmstrip Progress Bar -->
+          <div class="hero-dock-right">
+            <div class="hero-film-timeline" id="hero-film-timeline" aria-label="Reel Progress">
+              <div class="film-track-info">
+                <span class="film-track-label">REEL // 11 FRAMES</span>
+                <span class="film-track-current" id="film-current-clip">CLIP 01 / 11</span>
+              </div>
+              <div class="film-segments-bar" id="film-segments-bar">
+                <span class="film-seg active" data-clip="1"></span>
+                <span class="film-seg" data-clip="2"></span>
+                <span class="film-seg" data-clip="3"></span>
+                <span class="film-seg" data-clip="4"></span>
+                <span class="film-seg" data-clip="5"></span>
+                <span class="film-seg" data-clip="6"></span>
+                <span class="film-seg" data-clip="7"></span>
+                <span class="film-seg" data-clip="8"></span>
+                <span class="film-seg" data-clip="9"></span>
+                <span class="film-seg" data-clip="10"></span>
+                <span class="film-seg" data-clip="11"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Route Section: Architectural Hydrographic Survey Chart -->
+    <section id="route" class="map-section" aria-label="Journey Route">
+      <div class="hydro-chart-wrap" id="hydro-chart-wrap">
+        <div class="map-mobile-hint" id="map-mobile-hint" aria-hidden="true">
+          <span class="hint-icon">&harr;</span> SWIPE TO EXPLORE ROUTE
+        </div>
+        <svg 
+          id="hydro-chart-svg" 
+          class="hydro-chart-svg" 
+          viewBox="0 0 1440 940" 
+          preserveAspectRatio="xMidYMid meet"
+          role="img" 
+          aria-label="Architectural Hydrographic Survey Chart of Southwest Bangladesh Expedition"
+        >
+          <defs>
+            <!-- Mangrove Tract Dotted Stipple Pattern -->
+            <pattern id="mangrove-stipple" width="12" height="12" patternUnits="userSpaceOnUse">
+              <circle cx="3" cy="3" r="1.1" fill="#265a44" opacity="0.38" />
+              <circle cx="9" cy="9" r="1.1" fill="#265a44" opacity="0.38" />
+            </pattern>
+            <!-- Hydrographic Grid Pattern (50px squares) -->
+            <pattern id="hydro-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#2c5158" stroke-width="0.5" opacity="0.12" />
+            </pattern>
+          </defs>
+
+          <!-- Nautical Parchment Background -->
+          <rect width="1440" height="940" fill="#d5eeeb" />
+
+          <!-- Subtle Hydrographic Bathymetry Grid (50px squares) -->
+          <rect width="1440" height="940" fill="url(#hydro-grid)" />
+
+          <!-- Top Header Masthead Bar Line -->
+          <line x1="0" y1="34" x2="1440" y2="34" stroke="#2c5158" stroke-width="1" />
+
+          <!-- Top Header Masthead Content -->
+          <text x="40" y="22" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#142629" letter-spacing="0.08em">EXPEDITION ROUTE // DHAKA &rarr; BAY OF BENGAL</text>
+
+          <!-- Legend (Right) -->
+          <g transform="translate(1120, 0)">
+            <!-- Expedition Route Legend -->
+            <line x1="0" y1="18" x2="24" y2="18" stroke="#c84f32" stroke-width="2.5" />
+            <text x="30" y="22" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#33565e" letter-spacing="0.06em">EXPEDITION ROUTE</text>
+
+            <!-- Mangrove Tract Legend -->
+            <rect x="155" y="12" width="14" height="11" fill="url(#mangrove-stipple)" stroke="#265a44" stroke-width="1" />
+            <text x="175" y="22" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#33565e" letter-spacing="0.06em">MANGROVE RESERVE</text>
+          </g>
+
+          <!-- Bay of Bengal Coastal Water Band -->
+          <rect x="0" y="790" width="1440" height="100" fill="#a5dcce" opacity="0.85" />
+          <line x1="0" y1="790" x2="1440" y2="790" stroke="#70b9b0" stroke-width="1.2" />
+
+          <!-- Bay of Bengal Text (Positioned cleanly in open western waters) -->
+          <text x="450" y="845" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="16" letter-spacing="14px" fill="#295b65" font-weight="600">B A Y   O F   B E N G A L</text>
+
+          <!-- Padma River Ribbon -->
+          <path d="M 60 160 Q 360 200, 700 270 T 1380 350" fill="none" stroke="#7fa9ab" stroke-width="36" stroke-linecap="round" opacity="0.52" />
+          <path d="M 60 160 Q 360 200, 700 270 T 1380 350" fill="none" stroke="#20444a" stroke-width="1.2" stroke-dasharray="4, 4" opacity="0.85" />
+          <text x="200" y="165" font-family="'Cinzel', serif" font-size="12" font-weight="600" letter-spacing="5px" fill="#1b4147">P A D M A   R I V E R</text>
+
+          <!-- Pashur Channel Ribbon -->
+          <path d="M 590 450 Q 640 530, 675 590 T 700 700 Q 730 770, 830 890" fill="none" stroke="#7fa9ab" stroke-width="26" stroke-linecap="round" opacity="0.52" />
+          <path d="M 590 450 Q 640 530, 675 590 T 700 700 Q 730 770, 830 890" fill="none" stroke="#20444a" stroke-width="1.2" stroke-dasharray="4, 4" opacity="0.85" />
+          <text transform="translate(620, 520) rotate(68)" font-family="'Cinzel', serif" font-size="10" font-weight="600" letter-spacing="4px" fill="#1b4147" opacity="0.75">P A S H U R   C H A N N E L</text>
+
+          <!-- Sundarbans Mangrove Tract -->
+          <path 
+            d="M 400 620 C 370 540, 780 560, 1100 590 C 1240 620, 1260 770, 1140 820 C 1020 870, 640 860, 420 760 Z" 
+            fill="url(#mangrove-stipple)" 
+            stroke="#265a44" 
+            stroke-width="1.4" 
+            stroke-dasharray="5, 4" 
+          />
+          <text x="960" y="660" font-family="'Cinzel', serif" font-size="13" font-weight="600" letter-spacing="4px" fill="#1d4d3a">SUNDARBANS MANGROVE TRACT</text>
+
+          <!-- Expedition Route Polyline (Dashed Terracotta Track) -->
+          <polyline 
+            points="920,120 360,200 550,420 630,480 660,560 720,630 690,700 750,770 810,850" 
+            fill="none" 
+            stroke="#c84f32" 
+            stroke-width="2.5" 
+            stroke-dasharray="8, 6" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+          />
+
+          <!-- 9 Interactive Waypoint Stations -->
+          <!-- 01. Dhaka / N7 -->
+          <g class="chart-station" data-wp-id="wp-1" transform="translate(920, 120)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="32" y="4" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">01. Dhaka / N7</text>
+          </g>
+
+          <!-- 02. Hardinge & Lalon Shah Bridges -->
+          <g class="chart-station" data-wp-id="wp-2" transform="translate(360, 200)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="-20" y="4" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">02. Hardinge &amp; Lalon Shah Bridges</text>
+          </g>
+
+          <!-- 03. Khulna University -->
+          <g class="chart-station" data-wp-id="wp-3" transform="translate(550, 420)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="-20" y="4" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">03. Khulna University</text>
+          </g>
+
+          <!-- 04. Rupsha River -->
+          <g class="chart-station" data-wp-id="wp-4" transform="translate(630, 480)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="20" y="4" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">04. Rupsha River</text>
+          </g>
+
+          <!-- 05. Mongla Port -->
+          <g class="chart-station" data-wp-id="wp-5" transform="translate(660, 560)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="-20" y="4" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">05. Mongla Port</text>
+          </g>
+
+          <!-- 07. Karamjal Reserve -->
+          <g class="chart-station" data-wp-id="wp-7" transform="translate(720, 630)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="20" y="4" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">07. Karamjal Reserve</text>
+          </g>
+
+          <!-- 06. Cruiser Channel -->
+          <g class="chart-station" data-wp-id="wp-6" transform="translate(690, 700)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="-20" y="4" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">06. Cruiser Channel</text>
+          </g>
+
+          <!-- 08. Harbaria Creek -->
+          <g class="chart-station" data-wp-id="wp-8" transform="translate(750, 770)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="20" y="4" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">08. Harbaria Creek</text>
+          </g>
+
+          <!-- 09. Kotka Beach (Ocean) -->
+          <g class="chart-station" data-wp-id="wp-9" transform="translate(810, 850)">
+            <circle cx="0" cy="0" r="30" fill="transparent" class="station-hit" />
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#c84f32" stroke-width="1.2" class="station-ring-inner" />
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#c84f32" stroke-width="0.8" class="station-ring-outer" />
+            <circle cx="0" cy="0" r="7.5" fill="#fff" stroke="#122528" stroke-width="2" class="station-core" />
+            <circle cx="0" cy="0" r="3" fill="#c84f32" class="station-dot" />
+            <text x="20" y="4" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#122528" class="station-txt">09. Kotka Beach (Ocean)</text>
+          </g>
+
+          <!-- Bottom Telemetry Bar Line -->
+          <line x1="0" y1="890" x2="1440" y2="890" stroke="#2c5158" stroke-width="1" />
+
+          <!-- Bottom Telemetry Readouts -->
+          <text x="40" y="915" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#33565e" id="svg-telemetry-loc">WAYPOINT 01: HIGHWAY ROUTE N7 (DHAKA TO SOUTHWEST CORRIDOR) // 1 PHOTO</text>
+          <text x="1400" y="915" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#33565e">CLICK ANY STATION TO EXPLORE PHOTOGRAPHS</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section" aria-label="Photographs">
+      <div class="container">
+        <!-- Photos Grid -->
+        <div class="photos-grid" id="photos-grid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Loose Ending Runway for Free Scroll-Driven Outro Transformation -->
+    <div class="the-end-runway" id="the-end-runway" aria-hidden="true"></div>
+  </main>
+
+  <!-- Rectangular Glowing Scroll Indicator (Obsidian UI Inspired) & The End Morph Stage -->
+  <aside class="glowing-scroll-indicator" id="glowing-scroll-indicator" role="progressbar" aria-label="Page Scroll Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="Scroll Progress Indicator">
+    <div class="gsi-container">
+      <!-- Scrubber Track & Needle -->
+      <div class="gsi-track" id="gsi-track">
+        <div class="gsi-bars" id="gsi-bars"></div>
+        <div class="gsi-needle" id="gsi-needle" aria-hidden="true">
+          <div class="gsi-dot"></div>
+        </div>
+      </div>
+
+      <!-- The End Cinematic Card (Morphs from the scrubber box to full screen) -->
+      <div class="gsi-the-end-card" id="the-end-card" aria-hidden="true">
+        <!-- 4 Precision Viewfinder Corner Marks -->
+        <div class="the-end-corners" aria-hidden="true">
+          <span class="end-corner end-corner-tl"></span>
+          <span class="end-corner end-corner-tr"></span>
+          <span class="end-corner end-corner-bl"></span>
+          <span class="end-corner end-corner-br"></span>
+        </div>
+
+        <!-- Grand Serif "The End" Title -->
+        <div class="the-end-body">
+          <h2 class="the-end-title">The End</h2>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Clean Edgy Fine Art Lightbox Modal -->
+  <dialog class="lightbox-modal" id="lightbox-modal" aria-label="Photo Lightbox" aria-modal="true">
+    <div class="lightbox-top-bar">
+      <div class="lightbox-title-wrap">
+        <span class="lightbox-title-text" id="lb-title"></span>
+        <span class="lightbox-loc-text" id="lb-location"></span>
+      </div>
+      <div class="lightbox-actions-group">
+        <span class="lightbox-counter-text" id="lb-counter"></span>
+        <button class="lightbox-close-btn" id="lb-close" aria-label="Close Lightbox">&times;</button>
+      </div>
+    </div>
+
+    <div class="lightbox-stage" id="lb-stage">
+      <button class="lb-arrow-btn lb-arrow-prev" id="lb-prev" aria-label="Previous Photo">&larr;</button>
+      <div class="lightbox-img-container" id="lb-img-container">
+        <img src="" alt="" class="lightbox-img-el" id="lb-img" />
+      </div>
+      <button class="lb-arrow-btn lb-arrow-next" id="lb-next" aria-label="Next Photo">&rarr;</button>
+    </div>
+
+    <div class="lightbox-caption-bar" id="lb-caption-bar">
+      <span id="lb-desc"></span>
+      <span id="lb-coords" class="lb-coords-text"></span>
+    </div>
+  </dialog>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <span>Places Visited &mdash; Photographs by Munasib Apurbo. 2026.</span>
+      <a href="#top" class="footer-back-top">&uarr; Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/data/photos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

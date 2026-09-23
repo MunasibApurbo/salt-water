@@ -1,0 +1,7 @@
+.DS_Store
+_raw_media/
+scripts/
+*.jpeg
+*.MOV
+*.edl
+*.xml
