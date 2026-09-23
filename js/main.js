@@ -993,20 +993,10 @@
       }
     }
 
-    function update() {
-      const currentScrollY = window.scrollY || window.pageYOffset || 0;
-      const maxScroll = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        1
-      );
-      const scrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
-
-      // Update ARIA attributes
-      const pct = Math.round(scrollProgress * 100);
+    function renderBars(progress) {
+      const pct = Math.round(progress * 100);
       indicator.setAttribute('aria-valuenow', pct);
-
-      // Move needle along horizontal track (0% to 100%)
-      needle.style.left = `${scrollProgress * 100}%`;
+      needle.style.left = `${progress * 100}%`;
 
       // Update bars with exact Obsidian UI scale, opacity, and width curve
       for (let i = 0; i < BARS; i++) {
@@ -1016,21 +1006,21 @@
 
         // Height: [5, 15, 35, 15, 5]
         const height = interpolate(
-          scrollProgress,
+          progress,
           [0, preStep, thisBarPosition, postStep, 1],
           [5, 15, 35, 15, 5]
         );
 
         // Opacity: [0.25, 0.5, 1.0, 0.5, 0.25]
         const opacity = interpolate(
-          scrollProgress,
+          progress,
           [0, preStep, thisBarPosition, postStep, 1],
           [0.25, 0.5, 1.0, 0.5, 0.25]
         );
 
         // Width: [1.5, 5, 1.5]
         const width = interpolate(
-          scrollProgress,
+          progress,
           [0, thisBarPosition, 1],
           [1.5, 5, 1.5]
         );
@@ -1048,6 +1038,19 @@
           bar.style.boxShadow = 'none';
         }
       }
+    }
+
+    function update() {
+      const currentScrollY = window.scrollY || window.pageYOffset || 0;
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        1
+      );
+      const scrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
+
+      if (!isDragging) {
+        renderBars(scrollProgress);
+      }
 
       // Schedule the loose scroll-driven morph
       scheduleMorph();
@@ -1063,8 +1066,10 @@
       }
     }
 
-    // Hover listener: keeps indicator visible while mouse is positioned over it
-    indicator.addEventListener('mouseenter', () => {
+    // Hover listener: keeps indicator visible while mouse is positioned over it (desktop only)
+    indicator.addEventListener('mouseenter', (e) => {
+      if (e.pointerType === 'touch') return;
+      if (!window.matchMedia('(hover: hover)').matches) return;
       isHovered = true;
       showIndicator();
       if (idleTimer) {
@@ -1078,70 +1083,113 @@
       resetIdleTimer();
     });
 
-    // Interactive Click-to-Seek & Drag-to-Seek
-    function seekFromEvent(e) {
+    // Unified coordinate extractor for TouchEvent, PointerEvent, and MouseEvent
+    function getClientX(e) {
+      if (e.touches && e.touches.length > 0) return e.touches[0].clientX;
+      if (e.changedTouches && e.changedTouches.length > 0) return e.changedTouches[0].clientX;
+      if (typeof e.clientX === 'number') return e.clientX;
+      return null;
+    }
+
+    // Interactive Click-to-Seek & Drag-to-Seek with zero-latency visual feedback
+    function seekFromEvent(e, isInstant) {
       const rect = track.getBoundingClientRect();
-      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
-      if (clientX === undefined) return;
+      const clientX = getClientX(e);
+      if (clientX === null || rect.width <= 0) return;
       const x = clientX - rect.left;
       const pct = Math.max(0, Math.min(1, x / rect.width));
       const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
 
+      // Instant physical feedback directly under thumb/cursor
+      renderBars(pct);
+
+      const targetScroll = pct * maxScroll;
       window.scrollTo({
-        top: pct * maxScroll,
-        behavior: isDragging ? 'auto' : 'smooth'
+        top: targetScroll,
+        behavior: isInstant ? 'auto' : 'smooth'
       });
     }
 
-    track.addEventListener('click', (e) => {
-      seekFromEvent(e);
-      resetIdleTimer();
-    });
+    let activePointerId = null;
+    let dragMoved = false;
 
-    track.addEventListener('mousedown', (e) => {
+    function startDrag(e) {
+      if (currentT > 0.28) return;
+      if (e.button !== undefined && e.button !== 0) return;
+
       isDragging = true;
+      dragMoved = false;
+      indicator.classList.add('is-scrubbing');
       showIndicator();
       if (idleTimer) {
         clearTimeout(idleTimer);
         idleTimer = null;
       }
-      seekFromEvent(e);
       document.body.style.userSelect = 'none';
-    });
+      document.body.style.webkitUserSelect = 'none';
 
-    window.addEventListener('mousemove', (e) => {
+      if (e.pointerId !== undefined && container.setPointerCapture) {
+        try {
+          container.setPointerCapture(e.pointerId);
+          activePointerId = e.pointerId;
+        } catch (_) {}
+      }
+
+      seekFromEvent(e, true);
+      if (e.cancelable) e.preventDefault();
+    }
+
+    function moveDrag(e) {
       if (!isDragging) return;
-      seekFromEvent(e);
-    });
+      dragMoved = true;
+      if (e.cancelable) e.preventDefault();
+      seekFromEvent(e, true);
+    }
 
-    window.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        document.body.style.userSelect = '';
-        resetIdleTimer();
-      }
-    });
-
-    track.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      showIndicator();
-      if (idleTimer) {
-        clearTimeout(idleTimer);
-        idleTimer = null;
-      }
-      seekFromEvent(e);
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
+    function endDrag(e) {
       if (!isDragging) return;
-      seekFromEvent(e);
-    }, { passive: true });
+      isDragging = false;
+      isHovered = false;
+      indicator.classList.remove('is-scrubbing');
+      document.body.style.userSelect = '';
+      document.body.style.webkitUserSelect = '';
 
-    window.addEventListener('touchend', () => {
-      if (isDragging) {
-        isDragging = false;
-        resetIdleTimer();
+      if (activePointerId !== null && container.releasePointerCapture) {
+        try {
+          container.releasePointerCapture(activePointerId);
+        } catch (_) {}
+        activePointerId = null;
       }
+
+      resetIdleTimer();
+    }
+
+    // Attach robust touch & pointer scrubbing to the full indicator container
+    if (window.PointerEvent) {
+      container.addEventListener('pointerdown', startDrag);
+      window.addEventListener('pointermove', moveDrag, { passive: false });
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+    } else {
+      container.addEventListener('mousedown', startDrag);
+      window.addEventListener('mousemove', moveDrag);
+      window.addEventListener('mouseup', endDrag);
+
+      container.addEventListener('touchstart', startDrag, { passive: false });
+      window.addEventListener('touchmove', moveDrag, { passive: false });
+      window.addEventListener('touchend', endDrag);
+      window.addEventListener('touchcancel', endDrag);
+    }
+
+    // Click handler for quick taps (suppressed if drag gesture occurred)
+    container.addEventListener('click', (e) => {
+      if (currentT > 0.28) return;
+      if (dragMoved) {
+        e.stopPropagation();
+        return;
+      }
+      seekFromEvent(e, false);
+      resetIdleTimer();
     });
 
     // Clicking the open card smoothly scrolls back to the gallery

@@ -1298,6 +1298,9 @@ button, a, input, select, textarea, [role="button"],
   width: min(calc(100vw - 32px), 360px);
   height: 72px;
   box-sizing: border-box;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
   will-change: width, height, bottom, z-index, opacity, transform;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1324,6 +1327,10 @@ button, a, input, select, textarea, [role="button"],
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: ew-resize;
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1331,6 +1338,12 @@ button, a, input, select, textarea, [role="button"],
   background: rgba(223, 242, 240, 0.98);
   border-color: var(--accent-rust);
   box-shadow: 0 12px 28px rgba(10, 22, 24, 0.18), var(--shadow-retro);
+}
+
+.glowing-scroll-indicator.is-scrubbing .gsi-container {
+  background: rgba(223, 242, 240, 0.98);
+  border-color: var(--accent-rust);
+  box-shadow: 0 14px 36px rgba(10, 22, 24, 0.24), 0 0 16px rgba(200, 79, 50, 0.35);
 }
 
 /* Scrubber Track & Needle (Fades out when morphing to The End) */
@@ -1388,6 +1401,14 @@ button, a, input, select, textarea, [role="button"],
   background: var(--accent-rust);
   border-radius: 0 !important;
   box-shadow: 0 0 8px rgba(200, 79, 50, 0.85), 0 0 16px rgba(200, 79, 50, 0.5);
+  transition: width 0.15s ease, height 0.15s ease, box-shadow 0.15s ease, top 0.15s ease;
+}
+
+.glowing-scroll-indicator.is-scrubbing .gsi-dot {
+  width: 12px;
+  height: 12px;
+  top: -2px;
+  box-shadow: 0 0 12px rgba(200, 79, 50, 1), 0 0 24px rgba(200, 79, 50, 0.8);
 }
 
 /* --------------------------------------------------------------------------
