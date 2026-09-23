@@ -28,9 +28,11 @@
   --shadow-retro-lg: 6px 6px 0px #0a1618;
   --shadow-retro-hover: 5px 5px 0px #0a1618;
 
-  /* Vintage Marine & Print Accents */
-  --accent-rust: #c84f32;        /* Burnt terracotta / maritime buoy rust */
-  --accent-rust-soft: #faebe7;
+  /* Vintage Marine, Camcorder & Print Accents */
+  --accent-orange: #ff6f38;       /* Vibrant retro camcorder amber-orange */
+  --accent-orange-glow: rgba(255, 111, 56, 0.45);
+  --accent-rust: #ff6f38;        /* Burnt terracotta & glowing camcorder amber-orange */
+  --accent-rust-soft: #fff0eb;
   --accent-cyan: #17807d;        /* Maritime tidal seafoam/cyan */
   --accent-cyan-soft: #cbeee8;
   --accent-forest: #1e533d;      /* Deep mangrove forest green */
@@ -358,8 +360,6 @@ button, a, input, select, textarea, [role="button"],
 }
 
 /* Video Background Wrap */
-.hero-video-wrap,
-/* Video Background Wrap */
 .hero-video-wrap {
   position: absolute;
   inset: 0;
@@ -377,13 +377,47 @@ button, a, input, select, textarea, [role="button"],
 }
 
 /* --------------------------------------------------------------------------
+   Film Grain Overlay (Photographic 35mm Micro-Texture)
+   Uses a seamless 512x512 Gaussian micro-grain texture with gentle soft-light
+   blending and high-frequency micro-jitter. This maintains 100% of the video's
+   crisp detail, colors, and dynamic range without crushing darks or blowing
+   highlights, creating an authentic cinematic analog film texture.
+   -------------------------------------------------------------------------- */
+.hero-grain-overlay {
+  position: absolute;
+  inset: -60px;
+  width: calc(100% + 120px);
+  height: calc(100% + 120px);
+  pointer-events: none;
+  z-index: 2;
+  background-image: url("../assets/images/film_grain_tile.png");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.14;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+  animation: film-grain-jitter 0.28s steps(6) infinite;
+}
+
+@keyframes film-grain-jitter {
+  0%   { transform: translate3d(0, 0, 0); }
+  16%  { transform: translate3d(-14px, 9px, 0); }
+  33%  { transform: translate3d(11px, -15px, 0); }
+  50%  { transform: translate3d(-18px, -8px, 0); }
+  66%  { transform: translate3d(15px, 12px, 0); }
+  83%  { transform: translate3d(-7px, -18px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* --------------------------------------------------------------------------
    Interactive Viewfinder Frame (Corner Marks & Center Crosshair)
    Sits purely in the outer margins - never collides with text or telemetry
    -------------------------------------------------------------------------- */
 .hero-viewfinder-frame {
   position: absolute;
-  inset: clamp(10px, 1.5vw, 18px);
-  top: calc(var(--header-height) + clamp(8px, 1.2vh, 14px));
+  inset: clamp(14px, 2.2vw, 28px);
+  top: calc(var(--header-height) + clamp(10px, 1.8vh, 22px));
+  bottom: clamp(12px, 1.8vh, 22px);
   pointer-events: none;
   z-index: 2;
 }
@@ -391,8 +425,8 @@ button, a, input, select, textarea, [role="button"],
 /* 4 Precision Corner Crop Marks */
 .hud-corner {
   position: absolute;
-  width: clamp(20px, 2.5vw, 32px);
-  height: clamp(20px, 2.5vw, 32px);
+  width: clamp(22px, 2.4vw, 32px);
+  height: clamp(22px, 2.4vw, 32px);
   border-color: rgba(255, 255, 255, 0.45);
   border-style: solid;
   pointer-events: none;
@@ -571,23 +605,25 @@ button, a, input, select, textarea, [role="button"],
 
 .hero-cinematic-title {
   font-family: var(--font-serif);
-  font-size: clamp(4rem, 11vw, 8.5rem);
+  font-size: clamp(3.8rem, 8.5vw, 7.5rem);
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: -0.025em;
-  color: #ffffff;
-  margin: 0 0 1rem;
-  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.5);
+  color: var(--accent-orange, #ff6f38);
+  margin: 0 0 1.15rem;
+  text-shadow: 
+    0 2px 24px rgba(255, 111, 56, 0.38),
+    0 4px 35px rgba(0, 0, 0, 0.85);
 }
 
 .hero-cinematic-tagline {
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 620px;
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 640px;
   margin: 0;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
 }
 
 /* Tier 3: Unified Bottom Dock (3 Columns: Timestamp | Scroll Cue | Reel Progress) */
@@ -595,7 +631,7 @@ button, a, input, select, textarea, [role="button"],
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: flex-end;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: clamp(1.25rem, 2.5vw, 2.75rem);
   width: 100%;
 }
 
@@ -609,13 +645,15 @@ button, a, input, select, textarea, [role="button"],
   font-size: clamp(0.78rem, 1vw, 0.88rem);
   letter-spacing: 0.08em;
   color: var(--accent-rust);
-  text-shadow: 0 0 6px rgba(200, 79, 50, 0.5);
+  text-shadow: 0 0 6px rgba(255, 111, 56, 0.5);
+  white-space: nowrap;
 }
 
 .hud-timestamp-group {
   display: flex;
   align-items: baseline;
   gap: 0.75rem;
+  white-space: nowrap;
 }
 
 .hud-time {
@@ -628,6 +666,12 @@ button, a, input, select, textarea, [role="button"],
   gap: 0.4rem;
   font-size: 0.75rem;
   opacity: 0.85;
+  white-space: nowrap;
+}
+
+.hud-tape-label,
+.hud-tape-time {
+  white-space: nowrap;
 }
 
 .hero-dock-center {
@@ -741,24 +785,33 @@ button, a, input, select, textarea, [role="button"],
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.85rem;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .hero-dock-right {
+    order: 1;
+    width: 100%;
   }
 
   .hero-dock-left {
+    order: 2;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    font-size: clamp(0.72rem, 2.8vw, 0.82rem);
+    white-space: nowrap;
+    gap: 0.5rem;
   }
 
   .hero-dock-center {
-    justify-content: flex-start;
     order: 3;
-  }
-
-  .hero-dock-right {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    order: 2;
+    margin-top: 0.25rem;
   }
 
   .hero-film-timeline {
@@ -767,44 +820,80 @@ button, a, input, select, textarea, [role="button"],
 }
 
 @media (max-width: 768px) {
+  .hero-viewfinder-frame {
+    inset: 10px;
+    top: calc(var(--header-height) + 6px);
+    bottom: max(10px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .hud-corner {
+    width: 18px;
+    height: 18px;
+    border-width: 1.5px;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Hide center crosshairs & focus box on mobile to prevent overlapping editorial text */
+  .hud-center-crosshair {
+    display: none !important;
+  }
+
   .hero-cinematic-inner {
     padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 0.85rem);
-    padding-bottom: max(1.25rem, calc(0.75rem + env(safe-area-inset-bottom, 0px)));
-    padding-left: max(clamp(1.25rem, 4vw, 3.5rem), env(safe-area-inset-left, 0px));
-    padding-right: max(clamp(1.25rem, 4vw, 3.5rem), env(safe-area-inset-right, 0px));
+    padding-bottom: max(1.25rem, calc(0.85rem + env(safe-area-inset-bottom, 0px)));
+    padding-left: max(1.5rem, calc(20px + env(safe-area-inset-left, 0px)));
+    padding-right: max(1.5rem, calc(20px + env(safe-area-inset-right, 0px)));
+  }
+
+  .hero-cinematic-masthead {
+    margin: auto 0;
+    padding: 0.75rem 0;
+    max-width: 100%;
   }
 
   .hero-cinematic-title {
-    font-size: clamp(2.3rem, 10vw, 4.2rem);
-    line-height: 1.0;
-    margin: 0 0 0.65rem;
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    line-height: 1.05;
+    margin: 0 0 0.75rem;
+    color: var(--accent-orange, #ff6f38);
+    text-shadow: 
+      0 2px 20px rgba(255, 111, 56, 0.45),
+      0 3px 25px rgba(0, 0, 0, 0.9);
   }
 
   .hero-cinematic-tagline {
-    font-size: clamp(0.88rem, 3.8vw, 1.05rem);
-    line-height: 1.5;
+    font-size: clamp(0.92rem, 3.8vw, 1.08rem);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
   }
 
   .hud-cam-mode {
     display: none;
   }
 
-  .hud-focus-box {
-    width: 48px;
-    height: 36px;
+  .hero-bottom-dock {
+    gap: 0.65rem;
   }
 
-  .hero-film-timeline {
-    max-width: 100%;
-    width: 100%;
+  .hero-dock-left {
+    font-size: clamp(0.68rem, 2.7vw, 0.78rem);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
   }
 
   .film-track-info {
-    font-size: 0.62rem;
+    font-size: 0.64rem;
+  }
+
+  .film-segments-bar {
+    gap: 3px;
+    height: 3px;
   }
 
   .hero-scroll-cue {
-    font-size: 0.66rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
   }
 
   .scroll-cue-line {
