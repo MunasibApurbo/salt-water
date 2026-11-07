@@ -1157,7 +1157,9 @@
     btnNext?.addEventListener('click', nextPhoto);
 
     modalEl.addEventListener('click', (e) => {
-      if (e.target === modalEl) {
+      const stage = document.getElementById('lb-stage');
+      const container = document.getElementById('lb-img-container');
+      if (e.target === modalEl || e.target === stage || e.target === container) {
         closeLightbox();
       }
     });
