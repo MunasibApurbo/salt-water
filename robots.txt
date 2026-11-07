@@ -1,0 +1,9 @@
+# robots.txt for Sundarbans Photography Archive
+# Munasib Apurbo (2026)
+
+User-agent: *
+Allow: /
+
+# Exclude internal build scripts and raw media
+Disallow: /_raw_media/
+Disallow: /scripts/

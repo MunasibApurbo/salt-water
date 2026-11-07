@@ -1,0 +1,16 @@
+{
+  "name": "sundarbans-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sundarbans Photography Archive website",
+  "scripts": {
+    "dev": "serve . -l 3000",
+    "start": "serve . -l 3000",
+    "test": "node scripts/test-site.js",
+    "build:data": "python3 scripts/optimize_and_build_data.py"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0",
+    "serve": "^14.2.4"
+  }
+}
