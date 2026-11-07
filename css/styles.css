@@ -1340,7 +1340,7 @@ body.footer-active .site-header {
   height: clamp(220px, 32vh, 340px);
   display: block;
   pointer-events: none;
-  opacity: 0.42;
+  opacity: 0.72;
   mask-image: linear-gradient(to top, black 30%, rgba(0, 0, 0, 0.6) 65%, transparent 100%);
   -webkit-mask-image: linear-gradient(to top, black 30%, rgba(0, 0, 0, 0.6) 65%, transparent 100%);
   z-index: 1;

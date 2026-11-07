@@ -898,9 +898,9 @@
       uniform float u_imgAspect;
 
       // Website Theme Colors:
-      // Seafoam cyan paper background (#dff2f0) & deep marine obsidian ink (#0a1618)
+      // Seafoam cyan paper background (#dff2f0) & coastal sea-teal (#45b8b2)
       const vec4 u_colorBack = vec4(0.8745, 0.9490, 0.9412, 1.0); // #dff2f0 seafoam paper
-      const vec4 u_colorFront = vec4(0.0392, 0.0863, 0.0941, 1.0); // #0a1618 obsidian ink
+      const vec4 u_colorFront = vec4(0.2706, 0.7216, 0.6980, 1.0); // #45b8b2 coastal sea-teal
 
       // Procedural Hash & Value Noise (Paper Design Algorithm)
       float hash21(vec2 p) {
@@ -1030,9 +1030,9 @@
         float topEdgeFade = smoothstep(1.0, 0.88, uv.y);
         finalShape *= topEdgeFade;
 
-        // Obsidian ink color on transparent canvas for 100% seamless paper blend
+        // Coastal sea-teal ink color on transparent canvas for 100% seamless paper blend
         vec3 fgColor = u_colorFront.rgb;
-        float inkAlpha = finalShape * 0.85;
+        float inkAlpha = finalShape * 0.95;
 
         gl_FragColor = vec4(fgColor, inkAlpha);
       }
