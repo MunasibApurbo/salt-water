@@ -18,6 +18,7 @@ __pycache__/
 
 # Raw media & camera assets (local only - excluded from git repository)
 _raw_media/
+scratch/
 *.jpeg
 *.MOV
 *.edl
