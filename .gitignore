@@ -23,3 +23,5 @@ scratch/
 *.MOV
 *.edl
 *.xml
+.vercel
+.env*
