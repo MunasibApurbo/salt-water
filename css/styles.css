@@ -29,13 +29,16 @@
   --shadow-retro-hover: 5px 5px 0px #0a1618;
 
   /* Vintage Marine, Flora & Print Accents */
-  --accent-green: #4eb852;        /* Vibrant meadow flora green (extracted from grass landscape) */
-  --accent-green-glow: rgba(78, 184, 82, 0.45);
-  --accent-green-soft: #ebf7ec;
-  --accent-orange: var(--accent-green);
-  --accent-orange-glow: var(--accent-green-glow);
-  --accent-rust: var(--accent-green);
-  --accent-rust-soft: var(--accent-green-soft);
+  --accent-blue: #2d8aad;        /* Cerulean maritime blue (from reference swatch) */
+  --accent-blue-glow: rgba(45, 138, 173, 0.45);
+  --accent-blue-soft: #ebf4f8;
+  --accent-green: var(--accent-blue);
+  --accent-green-glow: var(--accent-blue-glow);
+  --accent-green-soft: var(--accent-blue-soft);
+  --accent-orange: var(--accent-blue);
+  --accent-orange-glow: var(--accent-blue-glow);
+  --accent-rust: var(--accent-blue);
+  --accent-rust-soft: var(--accent-blue-soft);
   --accent-cyan: #17807d;        /* Maritime tidal seafoam/cyan */
   --accent-cyan-soft: #cbeee8;
   --accent-forest: #1e533d;      /* Deep mangrove forest green */
@@ -504,9 +507,9 @@ body.footer-active .site-header {
 .hero-pill-indicator {
   width: 6px;
   height: 6px;
-  background: var(--accent-green, #4eb852);
+  background: var(--accent-blue, #2d8aad);
   border-radius: 50% !important;
-  box-shadow: 0 0 6px rgba(78, 184, 82, 0.75);
+  box-shadow: 0 0 6px rgba(45, 138, 173, 0.75);
 }
 
 .hero-pill-sep {
@@ -847,10 +850,10 @@ body.footer-active .site-header {
 .chart-station.scroll-active .station-core,
 .chart-station.magnetic-active .station-core {
   fill: #ffffff;
-  stroke: var(--accent-green, #4eb852);
+  stroke: var(--accent-blue, #2d8aad);
   stroke-width: 2.8px;
   transform: scale(1.6);
-  filter: drop-shadow(0 0 10px rgba(78, 184, 82, 0.75));
+  filter: drop-shadow(0 0 10px rgba(45, 138, 173, 0.75));
 }
 
 .chart-station:hover .station-dot,
@@ -858,7 +861,7 @@ body.footer-active .site-header {
 .chart-station.active .station-dot,
 .chart-station.scroll-active .station-dot,
 .chart-station.magnetic-active .station-dot {
-  fill: var(--accent-green, #4eb852);
+  fill: var(--accent-blue, #2d8aad);
   transform: scale(1.7);
 }
 
@@ -887,7 +890,7 @@ body.footer-active .site-header {
 .chart-station.active .station-txt,
 .chart-station.scroll-active .station-txt,
 .chart-station.magnetic-active .station-txt {
-  fill: var(--accent-green, #4eb852);
+  fill: var(--accent-blue, #2d8aad);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -1257,7 +1260,7 @@ body.footer-active .site-header {
    -------------------------------------------------------------------------- */
 :root {
   --tfa-dim-color: rgba(18, 37, 40, 0.22);
-  --tfa-primary-color: var(--accent-green, #4eb852);
+  --tfa-primary-color: var(--accent-blue, #2d8aad);
   --tfa-text-color: #122528;
 }
 
@@ -1267,7 +1270,7 @@ body.footer-active .site-header {
   }
   30% {
     color: var(--tfa-primary-color);
-    text-shadow: 0 0 14px rgba(78, 184, 82, 0.7), 0 0 24px rgba(78, 184, 82, 0.35);
+    text-shadow: 0 0 14px rgba(45, 138, 173, 0.7), 0 0 24px rgba(45, 138, 173, 0.35);
   }
   100% {
     color: var(--tfa-text-color);
@@ -1379,10 +1382,10 @@ body.footer-active .site-header {
 .footer-kicker-badge .kicker-dot {
   width: 5px;
   height: 5px;
-  background: var(--accent-green, #4eb852);
+  background: var(--accent-blue, #2d8aad);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px var(--accent-green-glow, rgba(78, 184, 82, 0.45));
+  box-shadow: 0 0 8px var(--accent-blue-glow, rgba(45, 138, 173, 0.45));
 }
 
 .footer-title {
