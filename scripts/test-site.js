@@ -36,6 +36,7 @@ async function runTests() {
     'assets/images/film_grain_tile.png',
     'assets/images/paper_grain_texture.png',
     'assets/images/web/hero_poster.jpg',
+    'assets/images/web/og_preview.jpg',
     'assets/images/web/footer_halftone.jpg',
     'assets/videos/showreel_web.mp4',
     'assets/videos/showreel_mobile.mp4',
@@ -119,7 +120,7 @@ async function runTests() {
     await desktopPage.waitForTimeout(1000);
 
     const title = await desktopPage.title();
-    assert(title.includes('Munasib Apurbo'), `Page title is valid: "${title}"`);
+    assert(title.includes('Where the rivers meet the sea') || title.includes('A small trip'), `Page title is valid: "${title}"`);
 
     const desktopCards = await desktopPage.locator('.photo-card').count();
     assert(desktopCards === 31, `Rendered all 31 gallery photo cards on desktop (found ${desktopCards})`);
