@@ -79,7 +79,7 @@ const fs = require('fs');
     <img class="bg" src="data:image/jpeg;base64,${imgBase64}" />
     <div class="scrim"></div>
     <div class="content">
-      <h1>Where the Water Turns to Salt</h1>
+      <h1>Salt Water</h1>
       <p>A drift down southern rivers, into the silence of the mangroves, and out to the open sea.</p>
     </div>
   </body>
