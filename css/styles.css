@@ -133,7 +133,7 @@ body {
   background-image: url("../assets/images/paper_grain_texture.png");
   background-repeat: repeat;
   background-size: 200px 200px;
-  opacity: 0.45;
+  opacity: 0.14;
   will-change: transform;
   transform: translateZ(0);
 }
@@ -463,7 +463,7 @@ body.footer-active .site-header {
   background-repeat: repeat;
   background-size: 256px 256px;
   mix-blend-mode: soft-light;
-  opacity: 0.18;
+  opacity: 0.08;
 }
 
 /* --------------------------------------------------------------------------
