@@ -169,6 +169,33 @@ async function runTests() {
     assert(mobileErrors.length === 0, `Zero console errors on mobile (found ${mobileErrors.length})`);
 
     await mobileContext.close();
+
+    // --- Dynamic Multi-Device & Ratio Matrix Checks ---
+    console.log('\n--- Dynamic Ratio & Device Matrix Checks ---');
+    const ratioMatrix = [
+      { name: 'iPhone SE (375x667)', w: 375, h: 667 },
+      { name: 'Phone Landscape (844x390)', w: 844, h: 390 },
+      { name: 'iPad Mini Portrait (768x1024)', w: 768, h: 1024 },
+      { name: 'iPad Air 11 (834x1194)', w: 834, h: 1194 },
+      { name: 'iPad Pro 12.9 (1024x1366)', w: 1024, h: 1366 },
+      { name: 'MacBook Air 13 (1280x800)', w: 1280, h: 800 },
+      { name: 'MacBook Pro 16 (1728x1117)', w: 1728, h: 1117 },
+      { name: 'Ultrawide 21:9 (2560x1080)', w: 2560, h: 1080 }
+    ];
+
+    for (const dev of ratioMatrix) {
+      const p = await browser.newPage({ viewport: { width: dev.w, height: dev.h } });
+      await p.goto(`http://localhost:${PORT}`, { waitUntil: 'domcontentloaded' });
+      await p.waitForTimeout(300);
+
+      const docWidth = await p.evaluate(() => document.documentElement.scrollWidth);
+      const clientWidth = await p.evaluate(() => document.documentElement.clientWidth);
+      assert(docWidth <= clientWidth, `No horizontal overflow on ${dev.name} (${docWidth} <= ${clientWidth})`);
+
+      const count = await p.locator('.photo-card').count();
+      assert(count === 31, `Rendered all 31 cards on ${dev.name}`);
+      await p.close();
+    }
   } finally {
     await browser.close();
     server.close();

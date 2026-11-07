@@ -28,11 +28,14 @@
   --shadow-retro-lg: 6px 6px 0px #0a1618;
   --shadow-retro-hover: 5px 5px 0px #0a1618;
 
-  /* Vintage Marine, Camcorder & Print Accents */
-  --accent-orange: #ff6f38;       /* Vibrant retro camcorder amber-orange */
-  --accent-orange-glow: rgba(255, 111, 56, 0.45);
-  --accent-rust: #ff6f38;        /* Burnt terracotta & glowing camcorder amber-orange */
-  --accent-rust-soft: #fff0eb;
+  /* Vintage Marine, Flora & Print Accents */
+  --accent-green: #4eb852;        /* Vibrant meadow flora green (extracted from grass landscape) */
+  --accent-green-glow: rgba(78, 184, 82, 0.45);
+  --accent-green-soft: #ebf7ec;
+  --accent-orange: var(--accent-green);
+  --accent-orange-glow: var(--accent-green-glow);
+  --accent-rust: var(--accent-green);
+  --accent-rust-soft: var(--accent-green-soft);
   --accent-cyan: #17807d;        /* Maritime tidal seafoam/cyan */
   --accent-cyan-soft: #cbeee8;
   --accent-forest: #1e533d;      /* Deep mangrove forest green */
@@ -47,7 +50,7 @@
   --font-mono: var(--font-main);
 
   /* Sizing & Radius (100% Edgy Geometry — Zero Rounded Shapes) */
-  --site-max-width: 100%;
+  --site-max-width: 1720px;
   --header-height: 72px;
   --gallery-gap: clamp(2rem, 3.5vw, 3.5rem);
   --radius-retro: 0px;
@@ -56,7 +59,7 @@
   /* Precision Architectural & Cartographic Cursors */
   --cursor-default: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%201%20L1%2015%20L4.8%2011.5%20L8%2017.5%20L10.5%2016.2%20L7.3%2010.3%20L12.2%2010.3%20Z%22%20fill%3D%22%230a1618%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 1 1, default;
   --cursor-pointer: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2022%2022%22%3E%3Cpath%20d%3D%22M6%201.5%20C6%200.7%206.7%200%207.5%200%20C8.3%200%209%200.7%209%201.5%20L9%209.5%20C9%209.2%209.5%208.5%2010.3%208.5%20C11.1%208.5%2011.5%209%2011.5%209.8%20C11.8%209.2%2012.4%208.8%2013.1%208.8%20C13.9%208.8%2014.3%209.4%2014.3%2010.2%20C14.6%209.8%2015.2%209.5%2015.8%209.5%20C16.7%209.5%2017.2%2010.2%2017.2%2011.2%20L17.2%2014.5%20C17.2%2017.8%2014.8%2020.5%2011.5%2020.5%20L9%2020.5%20C6.5%2020.5%204.5%2018.5%204%2016%20L2.2%2011.8%20C1.8%2010.8%202.3%209.7%203.3%209.4%20C4.1%209.1%205%209.6%205.4%2010.4%20L6.2%2012%20Z%22%20fill%3D%22%230a1618%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E") 7 0, pointer;
-  --cursor-crosshair: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%227%22%20fill%3D%22none%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.2%22/%3E%3Cline%20x1%3D%2212%22%20y1%3D%222%22%20x2%3D%2212%22%20y2%3D%227%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%2212%22%20y1%3D%2217%22%20x2%3D%2212%22%20y2%3D%2222%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%222%22%20y1%3D%2212%22%20x2%3D%227%22%20y2%3D%2212%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%2217%22%20y1%3D%2212%22%20x2%3D%2222%22%20y2%3D%2212%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%221.8%22%20fill%3D%22%23ff6f38%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%220.8%22/%3E%3C/svg%3E") 12 12, crosshair;
+  --cursor-crosshair: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%227%22%20fill%3D%22none%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.2%22/%3E%3Cline%20x1%3D%2212%22%20y1%3D%222%22%20x2%3D%2212%22%20y2%3D%227%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%2212%22%20y1%3D%2217%22%20x2%3D%2212%22%20y2%3D%2222%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%222%22%20y1%3D%2212%22%20x2%3D%227%22%20y2%3D%2212%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%2217%22%20y1%3D%2212%22%20x2%3D%2222%22%20y2%3D%2212%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%221.4%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%221.8%22%20fill%3D%22%234eb852%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%220.8%22/%3E%3C/svg%3E") 12 12, crosshair;
   --cursor-zoom-in: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2022%2022%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%229%22%20r%3D%226.5%22%20fill%3D%22%230a1618%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.2%22/%3E%3Cline%20x1%3D%226%22%20y1%3D%229%22%20x2%3D%2212%22%20y2%3D%229%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%229%22%20y1%3D%226%22%20x2%3D%229%22%20y2%3D%2212%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%2214%22%20y1%3D%2214%22%20x2%3D%2219.5%22%20y2%3D%2219.5%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2214%22%20y1%3D%2214%22%20x2%3D%2219.5%22%20y2%3D%2219.5%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E") 9 9, zoom-in;
   --cursor-zoom-out: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2022%2022%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%229%22%20r%3D%226.5%22%20fill%3D%22%230a1618%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.2%22/%3E%3Cline%20x1%3D%226%22%20y1%3D%229%22%20x2%3D%2212%22%20y2%3D%229%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221.4%22/%3E%3Cline%20x1%3D%2214%22%20y1%3D%2214%22%20x2%3D%2219.5%22%20y2%3D%2219.5%22%20stroke%3D%22%230a1618%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2214%22%20y1%3D%2214%22%20x2%3D%2219.5%22%20y2%3D%2219.5%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E") 9 9, zoom-out;
   --cursor-grab: grab, default;
@@ -501,9 +504,9 @@ body.footer-active .site-header {
 .hero-pill-indicator {
   width: 6px;
   height: 6px;
-  background: #ff6f38;
+  background: var(--accent-green, #4eb852);
   border-radius: 50% !important;
-  box-shadow: 0 0 6px rgba(255, 111, 56, 0.75);
+  box-shadow: 0 0 6px rgba(78, 184, 82, 0.75);
 }
 
 .hero-pill-sep {
@@ -737,13 +740,38 @@ body.footer-active .site-header {
   }
 }
 
+/* Short Viewports & Mobile Landscape (Dynamic Height Handling) */
+@media (max-height: 540px) and (orientation: landscape) {
+  .hero-cinematic {
+    min-height: 100dvh;
+    height: auto;
+  }
+
+  .hero-editorial-inner {
+    padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px) + 0.4rem);
+    padding-bottom: max(0.85rem, calc(0.6rem + env(safe-area-inset-bottom, 0px)));
+  }
+
+  .hero-editorial-title {
+    font-size: clamp(2rem, 5.5vw, 2.75rem);
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-editorial-description {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    max-width: 600px;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Route Map Section (Cyanotype Hydrographic Survey Chart)
    -------------------------------------------------------------------------- */
 .map-section {
   padding: 0;
   border-bottom: none;
-  background: transparent;
+  background: var(--bg-map) url("../assets/images/paper_grain_texture.png") repeat;
+  background-size: 200px 200px;
 }
 
 /* ==========================================================================
@@ -752,8 +780,8 @@ body.footer-active .site-header {
 .hydro-chart-wrap {
   position: relative;
   width: 100%;
-  background: var(--bg-map) url("../assets/images/paper_grain_texture.png") repeat;
-  background-size: 200px 200px;
+  max-width: var(--site-max-width, 1720px);
+  margin: 0 auto;
   border-top: none;
   border-bottom: none;
   overflow: hidden;
@@ -819,10 +847,10 @@ body.footer-active .site-header {
 .chart-station.scroll-active .station-core,
 .chart-station.magnetic-active .station-core {
   fill: #ffffff;
-  stroke: var(--accent-orange);
+  stroke: var(--accent-green, #4eb852);
   stroke-width: 2.8px;
   transform: scale(1.6);
-  filter: drop-shadow(0 0 10px rgba(255, 111, 56, 0.75));
+  filter: drop-shadow(0 0 10px rgba(78, 184, 82, 0.75));
 }
 
 .chart-station:hover .station-dot,
@@ -830,7 +858,7 @@ body.footer-active .site-header {
 .chart-station.active .station-dot,
 .chart-station.scroll-active .station-dot,
 .chart-station.magnetic-active .station-dot {
-  fill: var(--accent-orange);
+  fill: var(--accent-green, #4eb852);
   transform: scale(1.7);
 }
 
@@ -859,7 +887,7 @@ body.footer-active .site-header {
 .chart-station.active .station-txt,
 .chart-station.scroll-active .station-txt,
 .chart-station.magnetic-active .station-txt {
-  fill: var(--accent-orange);
+  fill: var(--accent-green, #4eb852);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -928,7 +956,7 @@ body.footer-active .site-header {
   .hydro-chart-mobile {
     display: block !important;
     width: 100%;
-    max-width: 100%;
+    max-width: min(100%, 480px);
     min-width: 0;
     height: auto;
     margin: 0 auto;
@@ -1028,9 +1056,11 @@ body.footer-active .site-header {
   grid-column: 3 / span 1;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .gallery-row.row-1p-2l-1p {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gallery-gap, 2rem);
   }
 }
 
@@ -1153,24 +1183,50 @@ body.footer-active .site-header {
   aspect-ratio: 9 / 12;
 }
 
-/* Responsive */
-@media (max-width: 860px) {
+/* Fluid Responsive Gallery Grid across Tablets & Mobiles */
+@media (max-width: 880px) {
   :root {
-    --gallery-gap: clamp(1.25rem, 4vw, 2rem);
+    --gallery-gap: clamp(1.25rem, 3.5vw, 2rem);
   }
 
   .gallery-row,
   .gallery-row.row-2l-1p,
-  .gallery-row.row-1p-2l {
+  .gallery-row.row-1p-2l,
+  .gallery-row.row-1p-2l-1p {
     display: flex;
     flex-direction: column;
     gap: var(--gallery-gap, 2rem);
     max-width: 100%;
   }
 
+  /* On tablets (641px to 880px), maintain balanced 2-column landscape photo pairs */
+  .pair-photos {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gallery-gap, 1.5rem);
+  }
+
+  /* Centered, balanced framing for portrait photos on tablets */
+  .gallery-row > .photo-card.is-portrait {
+    max-width: min(100%, 480px);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gallery-gap: 1.5rem;
+  }
+
+  /* On mobile phones, single column natural flow */
   .pair-photos {
     grid-template-columns: 1fr;
-    gap: var(--gallery-gap, 2rem);
+    gap: 1.5rem;
+  }
+
+  .gallery-row > .photo-card.is-portrait {
+    max-width: 100%;
   }
 }
 
@@ -1201,7 +1257,7 @@ body.footer-active .site-header {
    -------------------------------------------------------------------------- */
 :root {
   --tfa-dim-color: rgba(18, 37, 40, 0.22);
-  --tfa-primary-color: var(--accent-orange, #ff6f38);
+  --tfa-primary-color: var(--accent-green, #4eb852);
   --tfa-text-color: #122528;
 }
 
@@ -1211,7 +1267,7 @@ body.footer-active .site-header {
   }
   30% {
     color: var(--tfa-primary-color);
-    text-shadow: 0 0 14px rgba(255, 111, 56, 0.7), 0 0 24px rgba(255, 111, 56, 0.35);
+    text-shadow: 0 0 14px rgba(78, 184, 82, 0.7), 0 0 24px rgba(78, 184, 82, 0.35);
   }
   100% {
     color: var(--tfa-text-color);
@@ -1261,10 +1317,10 @@ body.footer-active .site-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   box-sizing: border-box;
-  padding-top: clamp(3.2rem, 7vh, 5.5rem);
-  padding-bottom: clamp(10rem, 22vh, 16rem);
+  padding-top: clamp(3rem, 6vh, 5rem);
+  padding-bottom: clamp(14rem, 26vh, 20rem);
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
@@ -1275,12 +1331,12 @@ body.footer-active .site-header {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: clamp(200px, 30vh, 320px);
+  height: clamp(220px, 32vh, 340px);
   display: block;
   pointer-events: none;
-  opacity: 0.38;
-  mask-image: linear-gradient(to top, black 25%, rgba(0, 0, 0, 0.55) 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 25%, rgba(0, 0, 0, 0.55) 60%, transparent 100%);
+  opacity: 0.42;
+  mask-image: linear-gradient(to top, black 30%, rgba(0, 0, 0, 0.6) 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 30%, rgba(0, 0, 0, 0.6) 65%, transparent 100%);
   z-index: 1;
 }
 
@@ -1303,18 +1359,18 @@ body.footer-active .site-header {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 680px;
+  max-width: 720px;
   width: 100%;
 }
 
 .footer-kicker-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: clamp(0.72rem, 0.88vw, 0.78rem);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--ink-muted);
   margin-bottom: clamp(1.2rem, 2.4vh, 1.8rem);
@@ -1323,10 +1379,10 @@ body.footer-active .site-header {
 .footer-kicker-badge .kicker-dot {
   width: 5px;
   height: 5px;
-  background: var(--accent-orange);
+  background: var(--accent-green, #4eb852);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px var(--accent-orange-glow);
+  box-shadow: 0 0 8px var(--accent-green-glow, rgba(78, 184, 82, 0.45));
 }
 
 .footer-title {
@@ -1334,11 +1390,11 @@ body.footer-active .site-header {
   flex-direction: column;
   align-items: center;
   font-family: var(--font-main);
-  font-size: clamp(2.8rem, 6.2vw, 4.8rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.2rem, 6.6vw, 5.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   color: var(--ink-primary);
-  margin: 0 0 clamp(1.25rem, 2.5vh, 2rem);
+  margin: 0 0 clamp(1.6rem, 3vh, 2.4rem);
 }
 
 .footer-title-lead {
@@ -1359,18 +1415,19 @@ body.footer-active .site-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.45rem;
-  margin-bottom: clamp(2rem, 3.8vh, 3rem);
+  gap: 0.65rem;
+  margin-bottom: clamp(2.2rem, 4vh, 3.2rem);
 }
 
 .footer-meta-line {
   display: block;
   font-family: var(--font-main);
-  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  font-size: clamp(0.96rem, 1.2vw, 1.1rem);
   font-weight: 400;
   color: var(--ink-secondary);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
   margin: 0;
+  line-height: 1.45;
 }
 
 .footer-meta-line strong {
@@ -1381,11 +1438,12 @@ body.footer-active .site-header {
 .footer-coordinates {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: clamp(0.74rem, 0.9vw, 0.82rem);
   color: var(--ink-muted);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .footer-coordinates .coord-sep {
@@ -1395,32 +1453,34 @@ body.footer-active .site-header {
 
 .footer-coordinates .coord-geo {
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 /* Minimalist Refined Back to Top Button */
 .footer-back-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
   font-family: var(--font-main);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-primary);
   background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(10, 22, 24, 0.22);
-  padding: 0.7rem 1.65rem;
+  border: 1px solid rgba(10, 22, 24, 0.2);
+  padding: 0.85rem 2.2rem;
   text-decoration: none;
   cursor: var(--cursor-pointer);
   transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 4px rgba(10, 22, 24, 0.04);
+  box-shadow: 0 2px 8px rgba(10, 22, 24, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .footer-back-btn .btn-arrow {
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1429,25 +1489,25 @@ body.footer-active .site-header {
   color: var(--bg-paper);
   border-color: var(--ink-primary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(10, 22, 24, 0.14);
+  box-shadow: 0 8px 24px rgba(10, 22, 24, 0.15);
 }
 
 .footer-back-btn:hover .btn-arrow {
   transform: translateY(-2px);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-height: 540px) {
   .site-footer-shader {
-    padding-top: 3.5rem;
-    padding-bottom: clamp(10rem, 24vh, 14rem);
+    padding-top: clamp(2rem, 5vh, 3.5rem);
+    padding-bottom: clamp(6rem, 16vh, 12rem);
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
   .footer-title {
-    font-size: clamp(2.3rem, 9.8vw, 3.2rem);
+    font-size: clamp(2rem, 8vw, 3.2rem);
   }
   .footer-meta-line {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
   .footer-coordinates {
     font-size: 0.7rem;
@@ -1455,8 +1515,8 @@ body.footer-active .site-header {
     justify-content: center;
   }
   .footer-back-btn {
-    font-size: 0.72rem;
-    padding: 0.65rem 1.4rem;
+    font-size: 0.74rem;
+    padding: 0.75rem 1.8rem;
   }
 }
 
@@ -1569,13 +1629,14 @@ body.footer-active .site-header {
 .lightbox-stage {
   position: relative;
   width: 100%;
-  height: calc(90vh - 68px);
-  min-height: 400px;
+  height: calc(90dvh - 68px);
+  max-height: calc(90dvh - 68px);
+  min-height: 0;
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem 2rem 1.75rem;
+  padding: clamp(0.75rem, 2vw, 1.75rem);
   overflow: hidden;
 }
 
@@ -1659,7 +1720,7 @@ body.footer-active .site-header {
   display: none !important;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 680px), (max-height: 540px) {
   .lightbox-modal[open] {
     width: 100vw;
     width: 100dvw;
