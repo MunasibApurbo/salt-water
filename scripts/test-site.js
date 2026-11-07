@@ -120,7 +120,7 @@ async function runTests() {
     await desktopPage.waitForTimeout(1000);
 
     const title = await desktopPage.title();
-    assert(title.includes('Where the rivers meet the sea') || title.includes('A small trip'), `Page title is valid: "${title}"`);
+    assert(title.includes('Where the Water Turns to Salt'), `Page title is valid: "${title}"`);
 
     const desktopCards = await desktopPage.locator('.photo-card').count();
     assert(desktopCards === 31, `Rendered all 31 gallery photo cards on desktop (found ${desktopCards})`);

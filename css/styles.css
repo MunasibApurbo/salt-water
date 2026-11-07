@@ -1413,7 +1413,7 @@ body.footer-active .site-header {
   font-weight: 500;
   font-style: italic;
   letter-spacing: -0.025em;
-  color: var(--ink-primary);
+  color: var(--accent-teal, #45b8b2);
 }
 
 /* Unified Archival Colophon Group */
