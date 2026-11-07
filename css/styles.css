@@ -29,16 +29,19 @@
   --shadow-retro-hover: 5px 5px 0px #0a1618;
 
   /* Vintage Marine, Flora & Print Accents */
-  --accent-blue: #2d8aad;        /* Cerulean maritime blue (from reference swatch) */
-  --accent-blue-glow: rgba(45, 138, 173, 0.45);
-  --accent-blue-soft: #ebf4f8;
-  --accent-green: var(--accent-blue);
-  --accent-green-glow: var(--accent-blue-glow);
-  --accent-green-soft: var(--accent-blue-soft);
-  --accent-orange: var(--accent-blue);
-  --accent-orange-glow: var(--accent-blue-glow);
-  --accent-rust: var(--accent-blue);
-  --accent-rust-soft: var(--accent-blue-soft);
+  --accent-teal: #45b8b2;        /* Vibrant coastal sea-teal / turquoise (from reference swatch) */
+  --accent-teal-glow: rgba(69, 184, 178, 0.45);
+  --accent-teal-soft: #e5f6f5;
+  --accent-blue: var(--accent-teal);
+  --accent-blue-glow: var(--accent-teal-glow);
+  --accent-blue-soft: var(--accent-teal-soft);
+  --accent-green: var(--accent-teal);
+  --accent-green-glow: var(--accent-teal-glow);
+  --accent-green-soft: var(--accent-teal-soft);
+  --accent-orange: var(--accent-teal);
+  --accent-orange-glow: var(--accent-teal-glow);
+  --accent-rust: var(--accent-teal);
+  --accent-rust-soft: var(--accent-teal-soft);
   --accent-cyan: #17807d;        /* Maritime tidal seafoam/cyan */
   --accent-cyan-soft: #cbeee8;
   --accent-forest: #1e533d;      /* Deep mangrove forest green */
@@ -507,9 +510,9 @@ body.footer-active .site-header {
 .hero-pill-indicator {
   width: 6px;
   height: 6px;
-  background: var(--accent-blue, #2d8aad);
+  background: var(--accent-teal, #45b8b2);
   border-radius: 50% !important;
-  box-shadow: 0 0 6px rgba(45, 138, 173, 0.75);
+  box-shadow: 0 0 6px rgba(69, 184, 178, 0.75);
 }
 
 .hero-pill-sep {
@@ -850,10 +853,10 @@ body.footer-active .site-header {
 .chart-station.scroll-active .station-core,
 .chart-station.magnetic-active .station-core {
   fill: #ffffff;
-  stroke: var(--accent-blue, #2d8aad);
+  stroke: var(--accent-teal, #45b8b2);
   stroke-width: 2.8px;
   transform: scale(1.6);
-  filter: drop-shadow(0 0 10px rgba(45, 138, 173, 0.75));
+  filter: drop-shadow(0 0 10px rgba(69, 184, 178, 0.75));
 }
 
 .chart-station:hover .station-dot,
@@ -861,7 +864,7 @@ body.footer-active .site-header {
 .chart-station.active .station-dot,
 .chart-station.scroll-active .station-dot,
 .chart-station.magnetic-active .station-dot {
-  fill: var(--accent-blue, #2d8aad);
+  fill: var(--accent-teal, #45b8b2);
   transform: scale(1.7);
 }
 
@@ -890,7 +893,7 @@ body.footer-active .site-header {
 .chart-station.active .station-txt,
 .chart-station.scroll-active .station-txt,
 .chart-station.magnetic-active .station-txt {
-  fill: var(--accent-blue, #2d8aad);
+  fill: var(--accent-teal, #45b8b2);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -1260,7 +1263,7 @@ body.footer-active .site-header {
    -------------------------------------------------------------------------- */
 :root {
   --tfa-dim-color: rgba(18, 37, 40, 0.22);
-  --tfa-primary-color: var(--accent-blue, #2d8aad);
+  --tfa-primary-color: var(--accent-teal, #45b8b2);
   --tfa-text-color: #122528;
 }
 
@@ -1270,7 +1273,7 @@ body.footer-active .site-header {
   }
   30% {
     color: var(--tfa-primary-color);
-    text-shadow: 0 0 14px rgba(45, 138, 173, 0.7), 0 0 24px rgba(45, 138, 173, 0.35);
+    text-shadow: 0 0 14px rgba(69, 184, 178, 0.7), 0 0 24px rgba(69, 184, 178, 0.35);
   }
   100% {
     color: var(--tfa-text-color);
@@ -1382,10 +1385,10 @@ body.footer-active .site-header {
 .footer-kicker-badge .kicker-dot {
   width: 5px;
   height: 5px;
-  background: var(--accent-blue, #2d8aad);
+  background: var(--accent-teal, #45b8b2);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px var(--accent-blue-glow, rgba(45, 138, 173, 0.45));
+  box-shadow: 0 0 8px var(--accent-teal-glow, rgba(69, 184, 178, 0.45));
 }
 
 .footer-title {
